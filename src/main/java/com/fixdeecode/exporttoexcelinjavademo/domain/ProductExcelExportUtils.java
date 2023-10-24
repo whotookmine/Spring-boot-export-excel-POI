@@ -31,20 +31,11 @@ public class ProductExcelExportUtils {
         sheet.autoSizeColumn(columnIndex);
         Cell cell = rowIndex.createCell(columnIndex);
         switch (value.getClass().getSimpleName()) {
-            case "Integer":
-                cell.setCellValue((Integer) value);
-                break;
-            case "String":
-                cell.setCellValue((String) value);
-                break;
-            case "BigDecimal":
-                cell.setCellValue(((BigDecimal) value).doubleValue());
-                break;
-            case "Date":
-                cell.setCellValue((Date) value);
-                break;
-            default:
-                cell.setCellValue(value.toString());
+            case "Integer" -> cell.setCellValue((Integer) value);
+            case "String" -> cell.setCellValue((String) value);
+            case "BigDecimal" -> cell.setCellValue(((BigDecimal) value).doubleValue());
+            case "Date" -> cell.setCellValue((Date) value);
+            default -> cell.setCellValue(value.toString());
         }
         cell.setCellStyle(style);
     }
